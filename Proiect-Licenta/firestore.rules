@@ -1,0 +1,111 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isAdmin() {
+      return request.auth != null && 
+        exists(/databases/$(database)/documents/utilizatori/$(request.auth.uid)) &&
+        get(/databases/$(database)/documents/utilizatori/$(request.auth.uid)).data.rol == 'admin';
+    }
+
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    match /utilizatori/{userId} {
+      allow read, list: if isAuthenticated();
+      allow create: if isAuthenticated() && request.auth.uid == userId && 
+        (request.resource.data.rol == 'participant' || request.resource.data.rol == 'furnizor');
+      allow update: if isAuthenticated() && (
+        request.auth.uid == userId ||
+        isAdmin() ||
+        // Allow adding notifications to other users
+        (request.resource.data.diff(resource.data).affectedKeys().hasOnly(['notifications']) &&
+         request.resource.data.notifications.size() == 
+         (resource.data.keys().hasAny(['notifications']) ? resource.data.notifications.size() + 1 : 1))
+      );
+    }	
+    
+    match /categories/{document} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    
+    match /events/{document} {
+      allow read: if true;
+      allow create: if isAuthenticated() && (
+        isAdmin() ||
+        get(/databases/$(database)/documents/utilizatori/$(request.auth.uid)).data.rol == 'furnizor'
+      );
+      allow update: if isAuthenticated() && (
+        isAdmin() ||
+        (get(/databases/$(database)/documents/utilizatori/$(request.auth.uid)).data.rol == 'furnizor' &&
+        resource.data.userId == request.auth.uid)
+      );
+      allow delete: if isAuthenticated() && (
+        isAdmin() ||
+        (get(/databases/$(database)/documents/utilizatori/$(request.auth.uid)).data.rol == 'furnizor' &&
+        resource.data.userId == request.auth.uid)
+      );
+    }
+    
+    match /vendors/{document} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /requests/{document} {
+      allow read: if isAuthenticated() && (
+        request.auth.uid == resource.data.userId || 
+        request.auth.uid == resource.data.vendorId ||
+        isAdmin()
+      );
+      allow create: if isAuthenticated();
+      allow update: if isAuthenticated() && (
+        request.auth.uid == resource.data.userId || 
+        request.auth.uid == resource.data.vendorId ||
+        isAdmin()
+      );
+      allow delete: if isAuthenticated() && (
+        isAdmin() ||
+        (get(/databases/$(database)/documents/utilizatori/$(request.auth.uid)).data.rol == 'furnizor' &&
+        request.auth.uid == resource.data.vendorId)
+      );
+    }
+
+    match /confirmed_events/{document} {
+      allow read: if isAuthenticated() && (
+        request.auth.uid == resource.data.userId ||
+        request.auth.uid == resource.data.vendorId ||
+        isAdmin()
+      );
+      allow create: if isAuthenticated() && (
+        isAdmin() ||
+        get(/databases/$(database)/documents/utilizatori/$(request.auth.uid)).data.rol == 'furnizor'
+      );
+      allow update: if isAuthenticated() && (
+        request.auth.uid == resource.data.userId ||
+        request.auth.uid == resource.data.vendorId ||
+        isAdmin()
+      );
+      allow delete: if isAuthenticated() && (
+        request.auth.uid == resource.data.userId ||
+        request.auth.uid == resource.data.vendorId ||
+        isAdmin()
+      );
+    }
+
+    match /service_approval_requests/{document} {
+      allow read, list: if isAuthenticated() && (
+        isAdmin() ||
+        request.auth.uid == resource.data.vendorId
+      );
+      allow create: if isAuthenticated() && 
+        get(/databases/$(database)/documents/utilizatori/$(request.auth.uid)).data.rol == 'furnizor';
+      allow update: if isAuthenticated() && (
+        isAdmin() ||
+        request.auth.uid == resource.data.vendorId
+      );
+      allow delete: if isAuthenticated() && isAdmin();
+    }
+  }
+}
