@@ -1,21 +1,22 @@
-# 🎉 Eventoria – Organizator Evenimente (Proiect de Licență)
+# Dezvoltarea unei aplicații web de tip agregator pentru organizarea unui eveniment (Proiect de diplomă)
 
 Eventoria este o aplicație web dedicată organizării de evenimente, oferind un marketplace pentru furnizori și o interfață simplă pentru utilizatori care doresc să planifice evenimente într-un mod eficient.
 
-## 📦 Tehnologii utilizate
+## Cerințe prealabile
 
-- **Frontend:** React + Vite
-- **Backend:** Firebase (Auth, Firestore, Storage)
-- **Autentificare:** Firebase Email/Password
-- **Stocare imagini:** Firebase Storage
-- **Formulare:** React Hook Form 
-- **Stilizare:** Tailwind CSS
+Înainte de a rula proiectul local, asigură‑te că ai instalate următoarele:
+
+- **Node.js** (versiunea LTS recomandată, de ex. 18.x sau 20.x)  
+- **npm** (se instalează împreună cu Node.js)  
+- **Git** (pentru clonarea repository-ului)  
+- **OpenSSL** (pentru decriptarea fișierului `.env.enc`)  
+  - Pe Windows, poți folosi Git Bash (vine cu OpenSSL), sau instalează Win32/Win64 OpenSSL și adaugă-l în PATH.
 
 ---
 
-## 🚀 Cum rulezi aplicația local
+## Cum rulezi aplicația local
 
-> 🔐 Aplicația folosește un fișier `.env` criptat pentru a proteja datele Firebase. Urmează pașii de mai jos pentru a-l decripta și rula aplicația.
+> Aplicația folosește un fișier `.env` criptat pentru a proteja datele Firebase. Urmează pașii de mai jos pentru a-l decripta și rula aplicația.
 
 📎 Link către repository: [https://github.com/popescuadi15/Eventoria](https://github.com/popescuadi15/Eventoria)
 
@@ -59,23 +60,13 @@ npm run dev
 
 ---
 
-## 📝 Funcționalități cheie
-
-- Înregistrare și autentificare utilizatori
-- Căutare furnizori după categorie și oraș
-- Adăugare și editare listări pentru furnizori
-- Sistem de rezervare
-- Gestionare evenimente planificate
-
----
-
-## 🛡️ Notă de securitate
+## Notă de securitate
 
 Fișierul `.env` conține date de conectare către Firebase și este criptat pentru a evita expunerea publică. Vă rugăm să nu publicați fișierul `.env` decriptat în mod neprotejat.
 
 ---
 
-## 📦 Descărcare arhivă proiect
+## Descărcare arhivă proiect
 
 Dacă preferați să descărcați proiectul în format ZIP fără a folosi Git:
 
