@@ -17,12 +17,15 @@ Eventoria este o aplicație web dedicată organizării de evenimente, oferind un
 
 > 🔐 Aplicația folosește un fișier `.env` criptat pentru a proteja datele Firebase. Urmează pașii de mai jos pentru a-l decripta și rula aplicația.
 
+📎 Link către repository: [https://github.com/popescuadi15/Eventoria](https://github.com/popescuadi15/Eventoria)
+
 ### 1. Clonare repository
 
 ```bash
 git clone https://github.com/popescuadi15/Eventoria.git
 cd Proiect-Licenta
 ```
+
 
 ### 2. Decriptează fișierul `.env`
 
@@ -64,8 +67,6 @@ npm run dev
 - Sistem de rezervare
 - Gestionare evenimente planificate
 
-
-
 ---
 
 ## 🛡️ Notă de securitate
@@ -74,16 +75,15 @@ Fișierul `.env` conține date de conectare către Firebase și este criptat pen
 
 ---
 
-## 👨‍🏫 Evaluare
+## 📦 Descărcare arhivă proiect
 
-Acest proiect este destinat exclusiv evaluării academice și nu este configurat pentru producție. Toate datele Firebase sunt stocate într-un proiect de test.
+Dacă preferați să descărcați proiectul în format ZIP fără a folosi Git:
+
+👉 [Click aici pentru descărcare .zip din GitHub](https://github.com/popescuadi15/Eventoria/archive/refs/heads/main.zip)
+
+După ce extrageți arhiva:
+1. Deschideți folderul rezultat
+2. Urmați pașii de decriptare `.env` și rulare locală de mai sus
 
 ---
-
-## 👤 Autor
-
-- **Popescu Florian-Adrian**
-- Facultatea Automatică și Calculatoare
-- Email: popescuadi05@gmail.com
-
 
