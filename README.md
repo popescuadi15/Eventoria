@@ -1,40 +1,89 @@
-# Eventoria
+# 🎉 Eventoria – Organizator Evenimente (Proiect de Licență)
 
-## Cum se folosește aplicația Eventoria
+Eventoria este o aplicație web dedicată organizării de evenimente, oferind un marketplace pentru furnizori și o interfață simplă pentru utilizatori care doresc să planifice evenimente într-un mod eficient.
 
-> Pentru a putea folosi comenzile de mai jos, asigură-te că ai instalate pe calculatorul tău următoarele:
->
-> - **Git** – pentru a putea clona repository-ul
-> - **Node.js** și **npm** – pentru a putea instala dependențele și porni aplicația
-> - **Un IDE sau un editor de cod (optional)** (recomandat, de exemplu Visual Studio Code, WebStorm, etc.) – pentru a vizualiza, modifica și gestiona fișierele proiectului mai ușor 
-> - Poți descărca Node.js (care include și npm) de la [https://nodejs.org/](https://nodejs.org/) și Git de la [https://git-scm.com/](https://git-scm.com/).
+## 📦 Tehnologii utilizate
 
-1. **Clonarea repository-ului**
-
-   ```bash
-   git clone https://github.com/popescuadi15/Eventoria.git
-   cd Proiect-Licenta
-   ```
-
-2. **Instalarea dependențelor**
-
-   ```bash
-   npm install
-   ```
-
-3. **Pornirea aplicației**
-
-   ```bash
-   npm run dev
-   ```
-
-4. **Accesarea aplicației**
-
-   - Deschide browserul și accesează adresa: [http://localhost:5173](http://localhost:5173)
-
-5. **Crearea și gestionarea evenimentelor**
-   - Autentifică-te sau creează-ți un cont nou.
-   - Creează, editează sau șterge evenimente după preferințe.
-   - Vizualizează lista de evenimente și detaliile fiecărui eveniment.
+- **Frontend:** React + Vite
+- **Backend:** Firebase (Auth, Firestore, Storage)
+- **Autentificare:** Firebase Email/Password
+- **Stocare imagini:** Firebase Storage
+- **Formulare:** React Hook Form 
+- **Stilizare:** Tailwind CSS
 
 ---
+
+## 🚀 Cum rulezi aplicația local
+
+> 🔐 Aplicația folosește un fișier `.env` criptat pentru a proteja datele Firebase. Urmează pașii de mai jos pentru a-l decripta și rula aplicația.
+
+### 1. Clonare repository
+
+```bash
+git clone https://github.com/popescuadi15/Eventoria.git
+cd Proiect-Licenta
+```
+
+### 2. Decriptează fișierul `.env`
+
+#### 🔹 Varianta 1 (recomandată – Git Bash sau Linux/macOS)
+
+Asigură-te că ai OpenSSL instalat. Apoi rulează:
+
+```bash
+openssl aes-256-cbc -d -in .env.enc -out .env
+```
+
+> 🔑 Parolă pentru decriptare: `licenta2025`
+
+#### 🔹 Varianta 2 (Windows fără Git Bash)
+
+Descarcă [OpenSSL pentru Windows](https://slproweb.com/products/Win32OpenSSL.html) și instalează-l cu opțiunea de a-l adăuga în `PATH`. Apoi deschide `cmd` sau `PowerShell` și rulează aceeași comandă de mai sus.
+
+---
+
+### 3. Instalează dependențele
+
+```bash
+npm install
+```
+
+### 4. Rulează aplicația
+
+```bash
+npm run dev
+```
+
+---
+
+## 📝 Funcționalități cheie
+
+- Înregistrare și autentificare utilizatori
+- Căutare furnizori după categorie și oraș
+- Adăugare și editare listări pentru furnizori
+- Sistem de rezervare
+- Gestionare evenimente planificate
+
+
+
+---
+
+## 🛡️ Notă de securitate
+
+Fișierul `.env` conține date de conectare către Firebase și este criptat pentru a evita expunerea publică. Vă rugăm să nu publicați fișierul `.env` decriptat în mod neprotejat.
+
+---
+
+## 👨‍🏫 Evaluare
+
+Acest proiect este destinat exclusiv evaluării academice și nu este configurat pentru producție. Toate datele Firebase sunt stocate într-un proiect de test.
+
+---
+
+## 👤 Autor
+
+- **Popescu Florian-Adrian**
+- Facultatea Automatică și Calculatoare
+- Email: popescuadi05@gmail.com
+
+
