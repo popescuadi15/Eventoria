@@ -1,6 +1,6 @@
 # Dezvoltarea unei aplicații web de tip agregator pentru organizarea unui eveniment (Proiect de diplomă)
 
-Eventoria este o aplicație web dedicată organizării de evenimente, oferind un marketplace pentru furnizori și o interfață simplă pentru utilizatori care doresc să planifice evenimente într-un mod eficient.
+ Link către repository: [https://github.com/popescuadi15/Eventoria](https://github.com/popescuadi15/Eventoria)
 
 ## Cerințe prealabile
 
@@ -18,7 +18,6 @@ Eventoria este o aplicație web dedicată organizării de evenimente, oferind un
 
 > Aplicația folosește un fișier `.env` criptat pentru a proteja datele Firebase. Urmează pașii de mai jos pentru a-l decripta și rula aplicația.
 
-📎 Link către repository: [https://github.com/popescuadi15/Eventoria](https://github.com/popescuadi15/Eventoria)
 
 ### 1. Clonare repository
 
@@ -30,7 +29,7 @@ cd Proiect-Licenta
 
 ### 2. Decriptează fișierul `.env`
 
-#### 🔹 Varianta 1 (recomandată – Git Bash sau Linux/macOS)
+#### Varianta 1 (recomandată – Git Bash sau Linux/macOS)
 
 Asigură-te că ai OpenSSL instalat. Apoi rulează:
 
@@ -40,7 +39,7 @@ openssl aes-256-cbc -d -in .env.enc -out .env
 
 > 🔑 Parolă pentru decriptare: `licenta2025`
 
-#### 🔹 Varianta 2 (Windows fără Git Bash)
+#### Varianta 2 (Windows fără Git Bash)
 
 Descarcă [OpenSSL pentru Windows](https://slproweb.com/products/Win32OpenSSL.html) și instalează-l cu opțiunea de a-l adăuga în `PATH`. Apoi deschide `cmd` sau `PowerShell` și rulează aceeași comandă de mai sus.
 
@@ -58,7 +57,15 @@ npm install
 npm run dev
 ```
 
----
+### 5. Accesează aplicația
+
+După rularea comenzii de mai sus, deschide browser-ul și accesează:
+
+```bash
+http://localhost:5173
+```
+
+sau în terminal va apărea link-ul de mai sus http://localhost:5173, apăsațti ALT+click stânga și se va deschide browser-ul cu aplicația
 
 ## Notă de securitate
 
@@ -70,7 +77,7 @@ Fișierul `.env` conține date de conectare către Firebase și este criptat pen
 
 Dacă preferați să descărcați proiectul în format ZIP fără a folosi Git:
 
-👉 [Click aici pentru descărcare .zip din GitHub](https://github.com/popescuadi15/Eventoria/archive/refs/heads/main.zip)
+ [Click aici pentru descărcare .zip din GitHub](https://github.com/popescuadi15/Eventoria/archive/refs/heads/main.zip)
 
 După ce extrageți arhiva:
 1. Deschideți folderul rezultat
