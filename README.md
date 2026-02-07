@@ -16,7 +16,7 @@
 
 ## Cum rulezi aplicația local
 
-> Aplicația folosește un fișier `.env` criptat pentru a proteja datele Firebase. Urmează pașii de mai jos pentru a-l decripta și rula aplicația.
+> Aplicația folosește un fișier `.env` criptat pentru a proteja datele Firebase. 
 
 
 ### 1. Clonare repository
@@ -27,31 +27,15 @@ cd Proiect-Licenta
 ```
 
 
-### 2. Decriptează fișierul `.env`
-
-#### Varianta 1 (recomandată – Git Bash sau Linux/macOS)
-
-Asigură-te că ai OpenSSL instalat. Apoi rulează:
-
-```bash
-openssl aes-256-cbc -d -in .env.enc -out .env
-```
-
-> 🔑 Parolă pentru decriptare: `licenta2025`
-
-#### Varianta 2 (Windows fără Git Bash)
-
-Descarcă [OpenSSL pentru Windows](https://slproweb.com/products/Win32OpenSSL.html) și instalează-l cu opțiunea de a-l adăuga în `PATH`. Apoi deschide `cmd` sau `PowerShell` și rulează aceeași comandă de mai sus.
-
 ---
 
-### 3. Instalează dependențele
+### 2. Instalează dependențele
 
 ```bash
 npm install
 ```
 
-### 4. Rulează aplicația
+### 3. Rulează aplicația
 
 ```bash
 npm run dev
@@ -69,7 +53,7 @@ sau în terminal va apărea link-ul de mai sus http://localhost:5173, apăsațti
 
 ## Notă de securitate
 
-Fișierul `.env` conține date de conectare către Firebase și este criptat pentru a evita expunerea publică. Vă rugăm să nu publicați fișierul `.env` decriptat în mod neprotejat.
+Fișierul `.env` conține date de conectare către Firebase și este criptat pentru a evita expunerea publică.
 
 ---
 
@@ -79,9 +63,6 @@ Dacă preferați să descărcați proiectul în format ZIP fără a folosi Git:
 
  [Click aici pentru descărcare .zip din GitHub](https://github.com/popescuadi15/Eventoria/archive/refs/heads/main.zip)
 
-După ce extrageți arhiva:
-1. Deschideți folderul rezultat
-2. Urmați pașii de decriptare `.env` și rulare locală de mai sus
 
 ---
 
